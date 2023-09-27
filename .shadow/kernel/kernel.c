@@ -48,11 +48,9 @@ static void draw_pic(){
   //w=640 h = 480
   uint32_t pixels[w * h];
 
-  printf("p=%d\n",100);
   for(int x = 0;x < w; x++){
     for (int y = 0;y < h; y++){
       int p = y * w + x;
-      printf("p=%d\n",100);
       pixels[p] = 0xffffff;
     }
   }
@@ -88,7 +86,6 @@ int main(const char *args) {
   puts("\"\n");
 
   puts("hello\n");
-  printf("p=%d\n",100);
   // splash();
   draw_pic();
 
