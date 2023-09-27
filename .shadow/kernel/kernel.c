@@ -618,27 +618,27 @@ unsigned int jpg_len = 6904;
 unsigned int jpeg_h = 160;
 unsigned int jpeg_w = 160;
 
-// static void draw_pic(){
-//   AM_GPU_CONFIG_T info = {0};
-//   ioe_read(AM_GPU_CONFIG, &info);
-//   w = info.width;
-//   h = info.height;
-//   //w=640 h = 480
-//   uint32_t pixels[w * h];
+static void draw_pic(){
+  AM_GPU_CONFIG_T info = {0};
+  ioe_read(AM_GPU_CONFIG, &info);
+  w = info.width;
+  h = info.height;
+  //w=640 h = 480
+  uint32_t pixels[w * h];
 
-//   for(int x = 0;x < w; x++){
-//     for (int y = 0;y < h; y++){
-//       int p = y * w + x;
-//       printf("x=%d\n",p);
-//       pixels[p] = 0xffffff;
-//     }
-//   }
-//  AM_GPU_FBDRAW_T event = {
-//     .x = 0, .y = 0, .w = w, .h = h, .sync = 1,
-//     .pixels = pixels,
-//   };
-//   ioe_write(AM_GPU_FBDRAW, &event);
-// }
+  for(int x = 0;x < w; x++){
+    for (int y = 0;y < h; y++){
+      int p = y * w + x;
+      printf("x=%d\n",p);
+      pixels[p] = 0xffffff;
+    }
+  }
+ AM_GPU_FBDRAW_T event = {
+    .x = 0, .y = 0, .w = w, .h = h, .sync = 1,
+    .pixels = pixels,
+  };
+  ioe_write(AM_GPU_FBDRAW, &event);
+}
 
 
 void splash() {
@@ -664,8 +664,8 @@ int main(const char *args) {
   puts(args);  // make run mainargs=xxx
   puts("\"\n");
 
-  splash();
-  // draw_pic();
+  // splash();
+  draw_pic();
 
   puts("Press any key to see its key code...\n");
   while (1) {
