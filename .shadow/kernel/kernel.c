@@ -54,11 +54,10 @@ void draw_pic(){
   for(int x = 0;x<h;x++){
     for (int y = 0;y< w;y++){
       pixels[y] = 0xffffff;
-      event.x = x;
-      event.y = 0;
-      event.pixels = pixels;
-      
     }
+    event.x = x;
+    event.y = 0;
+    event.pixels = pixels;
     ioe_write(AM_GPU_FBDRAW, &event);
   }
   //每次绘制一行
