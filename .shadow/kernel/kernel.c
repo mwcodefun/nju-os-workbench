@@ -87,6 +87,8 @@ int main(const char *args) {
   puts(args);  // make run mainargs=xxx
   puts("\"\n");
 
+  puts("hello\n");
+  printf("p=%d\n",100);
   // splash();
   draw_pic();
 
