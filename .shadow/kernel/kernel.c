@@ -627,8 +627,9 @@ static void draw_pic(){
 
   for(int x = 0;x < w; x++){
     for (int y = 0;y < h; y++){
-      if (x * y < jpg_len){
-        pixels[x * y] = my_jpeg[x * y];
+      int p = y * w + x;
+      if (p < jpg_len){
+        pixels[p] =  my_jpeg[p];
       }
     }
   }
