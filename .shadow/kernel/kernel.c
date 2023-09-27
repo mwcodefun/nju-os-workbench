@@ -48,7 +48,7 @@ void draw_pic(){
   //w=640 h = 480
   uint32_t pixels[w];
   AM_GPU_FBDRAW_T event = {
-        .x = 0, .y = 0, .w = w, .h = h, .sync = 1,
+        .x = 0, .y = 0, .w = w, .h = 1, .sync = 1,
         .pixels = pixels,
       };
   for(int x = 0;x<h;x++){
