@@ -58,6 +58,7 @@ void draw_pic(){
     event.x = x;
     event.y = 0;
     event.pixels = pixels;
+    printf("x=%d\n",x);
     ioe_write(AM_GPU_FBDRAW, &event);
   }
   //每次绘制一行
