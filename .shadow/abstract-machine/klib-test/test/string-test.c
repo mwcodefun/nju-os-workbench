@@ -1,3 +1,4 @@
+#define SIGSTKSZ 8192
 #include <klib.h>
 #include <assert.h>
 #include <stdio.h>
@@ -48,9 +49,11 @@ void test_strcmp(){
 }
 
 void test_printf(){
-    printf("x=%d\n",0);
-    printf("x=%s\n","gggg");
-    printf("x=%d\n",100);
+    for(int i = 0;i < 100;i++){
+        printf("x=%d\n",0);
+        printf("x=%s\n","gggg");
+        printf("x=%d\n",100);
+    }
 }
 
 void test_vprintf(){

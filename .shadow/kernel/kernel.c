@@ -40,7 +40,7 @@ unsigned int jpg_len = 6904;
 unsigned int jpeg_h = 160;
 unsigned int jpeg_w = 160;
 
-static void draw_pic(){
+void draw_pic(){
   AM_GPU_CONFIG_T info = {0};
   ioe_read(AM_GPU_CONFIG, &info);
   w = info.width;
@@ -86,8 +86,8 @@ int main(const char *args) {
   puts("\"\n");
 
   puts("hello\n");
-  // splash();
-  draw_pic();
+  splash();
+  // draw_pic();
 
   puts("Press any key to see its key code...\n");
   while (1) {
