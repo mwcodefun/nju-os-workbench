@@ -8,7 +8,7 @@ AM_SRCS := x86/qemu/start64.S \
            x86/qemu/ioe.c \
            x86/qemu/vme.c \
            x86/qemu/mpe.c
-QEMU_FLAGS += -display none
+
 run: build-arg  
 	echo $(QEMU_FLAGS)
 	qemu-system-x86_64 $(QEMU_FLAGS)
