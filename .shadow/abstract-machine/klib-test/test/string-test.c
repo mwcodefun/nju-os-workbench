@@ -48,7 +48,9 @@ void test_strcmp(){
 }
 
 void test_printf(){
-    printf("x=%d\n",0);
+    printf("x=%d\n",100);
+    printf("x=%s\n","gggg");
+    printf("x=%d\n",100);
 }
 
 void test_vprintf(){

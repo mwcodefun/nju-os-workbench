@@ -7,6 +7,8 @@
 
 #if !defined(__ISA_NATIVE__) || defined(__NATIVE_USE_KLIB__)
 int avsnprintf(char *out, size_t n, const char *fmt, va_list ap, bool stdout);
+
+
 char *itoa(int value, char *str, int base)
 {
   if (base != 10)
@@ -36,20 +38,20 @@ char *itoa(int value, char *str, int base)
   while (value != 0)
   {
     int remainder = value % base;
-    *str++ = remainder + '0';
+    *start++ = remainder + '0';
     value /= base;
   }
 
   // 如果数字是负的，添加负号
   if (isNegative)
   {
-    *str++ = '-';
+    *start++ = '-';
   }
 
-  *str = '\0';
+  *start = '\0';
 
   // 翻转字符串
-  char *end = str - 1;
+  char *end = start - 1;
   while (start < end)
   {
     char tmp = *start;
