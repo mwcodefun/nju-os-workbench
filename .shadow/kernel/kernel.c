@@ -615,6 +615,8 @@ unsigned char my_jpeg[] = {
   0xbe, 0xd1, 0xff, 0xd9
 };
 unsigned int __1_jpeg_len = 6904;
+unsigned int jpeg_h = 160;
+unsigned int jpeg_w = 160;
 
 static void draw_pic(){
   AM_GPU_CONFIG_T info = {0};
@@ -624,7 +626,9 @@ static void draw_pic(){
   uint32_t pixels[w * h];
   for(int x = 0;x < w; x++){
     for (int y = 0;y < h; y++){
-      pixels[x * y] = my_jpeg[x * y];
+      int a_x = (x / w) * jpeg_w;
+      int a_y = (y / h) * jpeg_h;
+      pixels[x * y] = my_jpeg[a_x * a_y];
     }
   }
  AM_GPU_FBDRAW_T event = {
