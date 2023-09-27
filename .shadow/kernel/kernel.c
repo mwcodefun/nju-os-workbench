@@ -623,14 +623,13 @@ static void draw_pic(){
   ioe_read(AM_GPU_CONFIG, &info);
   w = info.width;
   h = info.height;
+  printf("w=%d,h=%d\n",w,h);
   uint32_t pixels[w * h];
 
   for(int x = 0;x < w; x++){
     for (int y = 0;y < h; y++){
       int p = y * w + x;
-      if (p < jpg_len){
-        pixels[p] = 0xF0F8FF;
-      }
+      pixels[p] = 0xffffff;
     }
   }
  AM_GPU_FBDRAW_T event = {
