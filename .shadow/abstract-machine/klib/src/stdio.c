@@ -3,7 +3,7 @@
 #include <klib-macros.h>
 #include <stdarg.h>
 
-#define max 999999
+#define MAX 999999
 
 #if !defined(__ISA_NATIVE__) || defined(__NATIVE_USE_KLIB__)
 int avsnprintf(char *out,size_t n,const char *fmt,va_list ap,bool stdout);
@@ -59,20 +59,20 @@ char* itoa(int value, char* str, int base) {
 int printf(const char *fmt, ...) {
   va_list args;
   va_start(args,fmt); 
-  int len = avsnprintf(NULL,max,fmt,args,true);
+  int len = avsnprintf(NULL,MAX,fmt,args,true);
   va_end(args);
  
   return len;
 }
 
 int vsprintf(char *out, const char *fmt, va_list ap) {
-  return avsnprintf(out,max,fmt,ap,false);
+  return avsnprintf(out,MAX,fmt,ap,false);
 }
 
 int sprintf(char *out, const char *fmt, ...) {
   va_list args;
   va_start(args,fmt); 
-  int len = avsnprintf(out,max,fmt,args,false);
+  int len = avsnprintf(out,MAX,fmt,args,false);
   va_end(args);
   return len;
 }
