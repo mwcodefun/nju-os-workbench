@@ -614,7 +614,7 @@ unsigned char my_jpeg[] = {
   0x40, 0x2e, 0x6d, 0xb9, 0xb6, 0x8c, 0x0b, 0xd1, 0x4b, 0xa6, 0x19, 0x4d,
   0xbe, 0xd1, 0xff, 0xd9
 };
-unsigned int __1_jpeg_len = 6904;
+unsigned int jpg_len = 6904;
 unsigned int jpeg_h = 160;
 unsigned int jpeg_w = 160;
 
@@ -624,11 +624,12 @@ static void draw_pic(){
   w = info.width;
   h = info.height;
   uint32_t pixels[w * h];
+
   for(int x = 0;x < w; x++){
     for (int y = 0;y < h; y++){
-      int a_x = (x / w) * jpeg_w;
-      int a_y = (y / h) * jpeg_h;
-      pixels[x * y] = my_jpeg[a_x * a_y];
+      if (x * y < jpg_len){
+        pixels[x * y] = my_jpeg[x * y];
+      }
     }
   }
  AM_GPU_FBDRAW_T event = {
