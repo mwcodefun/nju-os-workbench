@@ -51,7 +51,7 @@ static void draw_pic(){
   for(int x = 0;x < w; x++){
     for (int y = 0;y < h; y++){
       int p = y * w + x;
-      pixels[p] = 0xffffff;
+      pixels[p] = 0xff;
     }
   }
  AM_GPU_FBDRAW_T event = {
