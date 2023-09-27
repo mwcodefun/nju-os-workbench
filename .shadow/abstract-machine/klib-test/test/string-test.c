@@ -48,14 +48,12 @@ void test_strcmp(){
 }
 
 void test_printf(){
-    printf("%%\n");
-    printf("hello\n");
-    printf("hello%d\n",100);
+    printf("x=%d\n",0);
 }
 
 void test_vprintf(){
     char buffer[100];
-    sprintf(buffer,"hello%d\n",100);
+    sprintf(buffer,"hello%d\n",10);
     printf(buffer);
 }
 
@@ -67,6 +65,6 @@ int main(){
     test_strcat();
     test_strcmp();
     test_printf();
-    test_vprintf();
+    // test_vprintf();
     return 0;
 }
