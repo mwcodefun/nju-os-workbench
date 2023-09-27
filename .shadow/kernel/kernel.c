@@ -623,13 +623,13 @@ static void draw_pic(){
   ioe_read(AM_GPU_CONFIG, &info);
   w = info.width;
   h = info.height;
-  printf("w=%d,h=%d\n",w,h);
+  //w=640 h = 480
   uint32_t pixels[w * h];
 
   for(int x = 0;x < w; x++){
     for (int y = 0;y < h; y++){
       int p = y * w + x;
-      printf("x=%d,\n",p);
+      printf("x=%d\n",p);
       pixels[p] = 0xffffff;
     }
   }
