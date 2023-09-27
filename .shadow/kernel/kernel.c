@@ -629,7 +629,7 @@ static void draw_pic(){
     for (int y = 0;y < h; y++){
       int p = y * w + x;
       if (p < jpg_len){
-        pixels[p] =  my_jpeg[p];
+        pixels[p] =  0xffffff & my_jpeg[p];
       }
     }
   }
