@@ -629,7 +629,7 @@ static void draw_pic(){
   for(int x = 0;x < w; x++){
     for (int y = 0;y < h; y++){
       int p = y * w + x;
-      printf("p=%d\n");
+      printf("p=%d\n",p);
       pixels[p] = 0xffffff;
     }
   }
