@@ -52,6 +52,7 @@ char *itoa(int value, char *str, int base)
 
   // 翻转字符串
   char *end = start - 1;
+  start = str;
   while (start < end)
   {
     char tmp = *start;
