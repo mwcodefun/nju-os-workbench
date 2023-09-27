@@ -55,8 +55,8 @@ void draw_pic(){
     for (int y = 0;y< w;y++){
       pixels[y] = 0xffffff;
     }
-    event.x = x;
-    event.y = 0;
+    event.x = 0;
+    event.y = x;
     event.pixels = pixels;
     printf("x=%d\n",x);
     ioe_write(AM_GPU_FBDRAW, &event);
