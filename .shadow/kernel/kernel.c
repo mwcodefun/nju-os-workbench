@@ -50,12 +50,13 @@ void draw_pic(){
 
   //每次绘制一行
   for(int x = 0;x < w; x++){
+    memset(pixels,0,h);
     for (int y = 0;y < h; y++){
       //x= 0
       //y=0,1,2,3...480
       //p=480+0
       //p=480*2 + 0
-      pixels[y] = 0xff;
+      pixels[y] = 0xffffff;
       AM_GPU_FBDRAW_T event = {
         .x = x, .y = 0, .w = w, .h = h, .sync = 1,
         .pixels = pixels,
