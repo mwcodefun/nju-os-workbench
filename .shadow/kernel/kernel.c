@@ -90,8 +90,8 @@ int main(const char *args) {
   puts("\"\n");
 
   puts("hello\n");
-  splash();
-  // draw_pic();
+  // splash();
+  draw_pic();
 
   puts("Press any key to see its key code...\n");
   while (1) {
