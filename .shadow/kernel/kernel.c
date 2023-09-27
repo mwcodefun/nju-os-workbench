@@ -46,24 +46,22 @@ void draw_pic(){
   w = info.width;
   h = info.height;
   //w=640 h = 480
-  uint32_t pixels[h];
-
-  //每次绘制一行
-  for(int x = 0;x < w; x++){
-    memset(pixels,0,h);
-    for (int y = 0;y < h; y++){
-      //x= 0
-      //y=0,1,2,3...480
-      //p=480+0
-      //p=480*2 + 0
-      pixels[y] = 0xffffff;
-      AM_GPU_FBDRAW_T event = {
-        .x = x, .y = 0, .w = w, .h = h, .sync = 1,
+  uint32_t pixels[w];
+  AM_GPU_FBDRAW_T event = {
+        .x = 0, .y = 0, .w = w, .h = h, .sync = 1,
         .pixels = pixels,
       };
-      ioe_write(AM_GPU_FBDRAW, &event);
+  for(int x = 0;x<h;x++){
+    for (int y = 0;y< w;y++){
+      pixels[y] = 0xffffff;
+      event.x = x;
+      event.y = 0;
+      event.pixels = pixels;
+      
     }
+    ioe_write(AM_GPU_FBDRAW, &event);
   }
+  //每次绘制一行
 }
 
 
