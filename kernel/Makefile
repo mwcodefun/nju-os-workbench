@@ -9,3 +9,7 @@ endif
 include $(AM_HOME)/Makefile
 include ../Makefile.lab
 image: git
+
+qemu-gdb: image
+	qemu-system-x86_64  $(QEMU_FLAGS) -s -S --display none
+

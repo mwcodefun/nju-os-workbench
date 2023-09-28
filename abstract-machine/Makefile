@@ -78,7 +78,7 @@ READELF   = $(CROSS_COMPILE)readelf
 INC_PATH += $(WORK_DIR)/include $(addsuffix /include/, $(addprefix $(AM_HOME)/, $(LIBS)))
 INCFLAGS += $(addprefix -I, $(INC_PATH))
 
-CFLAGS   += -O2 -MMD -Wall -Werror $(INCFLAGS) \
+CFLAGS   += -O2 -g -MMD -Wall -Werror $(INCFLAGS) \
             -D__ISA__=\"$(ISA)\" -D__ISA_$(shell echo $(ISA) | tr a-z A-Z)__ \
             -D__ARCH__=$(ARCH) -D__ARCH_$(shell echo $(ARCH) | tr a-z A-Z | tr - _) \
             -D__PLATFORM__=$(PLATFORM) -D__PLATFORM_$(shell echo $(PLATFORM) | tr a-z A-Z | tr - _) \
@@ -122,6 +122,7 @@ $(DST_DIR)/%.o: %.S
 	@$(AS) $(ASFLAGS) -c -o $@ $(realpath $<)
 
 ### Rule (recursive make): build a dependent library (am, klib, ...)
+### make AM_HOME/klib archive
 $(LIBS): %:
 	@$(MAKE) -s -C $(AM_HOME)/$* archive
 
@@ -140,12 +141,13 @@ $(ARCHIVE): $(OBJS)
 
 ## 6. Miscellaneous
 
+
 ### Build order control
 image: image-dep
 archive: $(ARCHIVE)
 image-dep: $(OBJS) am $(LIBS)
 	@echo \# Creating image [$(ARCH)]
-.PHONY: image image-dep archive run $(LIBS)
+.PHONY: image image-dep archive run $(LIBS) 
 
 ### Clean a single project (remove `build/`)
 clean:
