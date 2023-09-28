@@ -651,7 +651,10 @@ void draw_pic()
     //绘制第y行的所有x元素
     for (int x = 0; x < w; x++)
     {
-      unsigned int t = jpeg[y * w + (x/w * jpeg_w)];
+      unsigned  int t = 0xffffff;
+      if(x < jpeg_w){
+        t = jpeg[y * jpeg_w + x];
+      }
       pixels[x] = t;
     }
     event.x = 0;
