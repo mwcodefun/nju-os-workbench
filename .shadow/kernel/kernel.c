@@ -67,17 +67,16 @@ void draw_pic()
       .sync = 1,
       .pixels = pixels,
   };
-  for (int x = 0; x < w; x++)
+  //每次绘制一行
+  for (int y = 0; y < h; y++)
   {
-    for (int y = 0; y < h; y++)
+    for (int x = 0; x < w; x++)
     {
-      // int original = x * h + y;
-      // int p = x * jpeg_h + 
-      unsigned int t = jpg[y * w + x];
-      pixels[y] = t;
+      // unsigned int t = jpg[y * w + x];
+      pixels[x] = 0xffffff;
     }
     event.x = 0;
-    event.y = x;
+    event.y = y;
     event.pixels = pixels;
     ioe_write(AM_GPU_FBDRAW, &event);
   }
