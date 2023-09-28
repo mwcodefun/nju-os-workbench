@@ -67,13 +67,13 @@ void draw_pic()
       .sync = 1,
       .pixels = pixels,
   };
-  for (int x = 0; x < h; x++)
+  for (int x = 0; x < w; x++)
   {
-    for (int y = 0; y < w; y++)
+    for (int y = 0; y < h; y++)
     {
       // int original = x * h + y;
       // int p = x * jpeg_h + 
-      unsigned int t = jpg[x * w + y];
+      unsigned int t = jpg[y * w + x];
       pixels[y] = t;
     }
     event.x = 0;
